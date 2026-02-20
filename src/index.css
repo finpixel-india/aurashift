@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+:root {
+  --color-bg: #050505;
+  --color-surface: #121212;
+  --color-accent: #FFD700;
+  /* Vibrant Yellow */
+  --color-text: #FFFFFF;
+  --color-text-dim: #A0A0A0;
+
+  --font-main: 'Chakra Petch', sans-serif;
+  --font-display: 'Chakra Petch', sans-serif;
+  --font-logo: 'Chakra Petch', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-main);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Utilities */
+.text-accent {
+  color: var(--color-accent);
+}
+
+.font-display {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  /* Tighter tracking as requested */
+}
+
+.glass-panel {
+  background: rgba(18, 18, 18, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 215, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Futuristic Button */
+.btn-futuristic {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-bg);
+  background: linear-gradient(135deg, var(--color-accent) 0%, #FFA500 100%);
+  border: none;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+  z-index: 1;
+}
+
+.btn-futuristic::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  transition: left 0.4s ease;
+  z-index: -1;
+}
+
+.btn-futuristic:hover {
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.6), 0 0 50px rgba(255, 165, 0, 0.4);
+  transform: scale(1.05) translateY(-2px);
+  filter: brightness(1.1);
+}
+
+.btn-futuristic:hover::before {
+  left: 100%;
+}
+
+.btn-futuristic:active {
+  transform: scale(0.98);
+}
+
+/* Fullscreen overlays */
+.fullscreen-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+/* --- Mobile Responsiveness Utilities --- */
+@media (max-width: 768px) {
+
+  /* Layout Structures */
+  .responsive-grid-2,
+  .responsive-grid-3,
+  .responsive-grid-4 {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  .responsive-flex-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  .responsive-flex-stack {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 1.5rem !important;
+  }
+
+  /* Padding Adjustments */
+  .responsive-section {
+    padding: 3rem 1.5rem !important;
+  }
+
+  .responsive-hero-padding {
+    padding: 6rem 1.5rem 2rem 1.5rem !important;
+  }
+
+  .responsive-nav-padding {
+    padding: 1.5rem !important;
+  }
+
+  /* Typography Scaling */
+  .responsive-title-h1 {
+    font-size: 3rem !important;
+  }
+
+  .responsive-title-h2 {
+    font-size: 2.5rem !important;
+  }
+
+  .responsive-title-h3 {
+    font-size: 1.8rem !important;
+  }
+
+  /* Specific Overrides */
+  .responsive-hide {
+    display: none !important;
+  }
+
+  .responsive-nav {
+    right: 0 !important;
+    left: 0 !important;
+    top: 1rem !important;
+    justify-content: center !important;
+    gap: 1rem !important;
+    flex-wrap: wrap !important;
+    width: 100% !important;
+  }
+}
