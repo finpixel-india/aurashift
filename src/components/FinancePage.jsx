@@ -5,17 +5,17 @@ import { Calculator, Banknote, ShieldAlert, FileText, BarChart3 } from 'lucide-r
 
 export const FinancePage = () => {
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', padding: '6rem 4rem 0 4rem', position: 'relative' }}>
+        <div className="responsive-hero-padding" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', padding: '6rem 4rem 0 4rem', position: 'relative' }}>
             <NavBar />
 
             <div style={{ marginBottom: '4rem' }}>
-                <h2 className="font-display" style={{ fontSize: '3.5rem', fontWeight: '700', marginBottom: '0.5rem', textShadow: '0 0 30px rgba(255,215,0,0.1)' }}>FINANCIAL ARCHITECTURE</h2>
+                <h2 className="font-display responsive-title-h1" style={{ fontSize: '3.5rem', fontWeight: '700', marginBottom: '0.5rem', textShadow: '0 0 30px rgba(255,215,0,0.1)' }}>FINANCIAL ARCHITECTURE</h2>
                 <p style={{ color: 'var(--color-text-dim)', fontSize: '1.2rem', maxWidth: '800px', lineHeight: '1.6' }}>
                     Acquiring an apex-tier vehicle requires apex-tier financial structuring. Our dedicated team of wealth managers and automotive financiers craft bespoke acquisition strategies tailored to your global asset portfolio.
                 </p>
             </div>
 
-            <div style={{
+            <div className="responsive-grid-2" style={{
                 display: 'grid',
                 gridTemplateColumns: 'minmax(400px, 1fr) minmax(400px, 1.2fr)',
                 gap: '4rem',
@@ -54,7 +54,7 @@ export const FinancePage = () => {
 
                         <div>
                             <label style={{ display: 'block', color: 'var(--color-text-dim)', fontSize: '0.9rem', marginBottom: '0.5rem', fontFamily: 'var(--font-display)', letterSpacing: '0.1em' }}>AMORTIZATION TERM</label>
-                            <div style={{ display: 'flex', gap: '1rem' }}>
+                            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
                                 {[24, 36, 48, 60, 72].map(term => (
                                     <button key={term} style={{
                                         flex: 1,
@@ -79,7 +79,7 @@ export const FinancePage = () => {
                             textAlign: 'center'
                         }}>
                             <div style={{ color: 'var(--color-text-dim)', fontSize: '0.8rem', letterSpacing: '0.1em', marginBottom: '0.5rem' }}>PROJECTED MONTHLY ALLOCATION</div>
-                            <div className="font-display text-accent" style={{ fontSize: '3.5rem', fontWeight: 'bold', textShadow: '0 0 20px rgba(255,215,0,0.4)' }}>$58,450</div>
+                            <div className="font-display text-accent responsive-title-h1" style={{ fontSize: '3.5rem', fontWeight: 'bold', textShadow: '0 0 20px rgba(255,215,0,0.4)' }}>$58,450</div>
                         </div>
 
                         <button className="btn-futuristic" style={{ width: '100%', padding: '1.2rem', fontSize: '1rem' }}>SUBMIT TO UNDERWRITING</button>
@@ -129,11 +129,11 @@ export const FinancePage = () => {
             </div>
 
             {/* Extended Detail Section 1: Syndicate API */}
-            <section style={{ marginTop: '6rem', padding: '4rem', background: 'rgba(255,215,0,0.02)', borderTop: '1px solid rgba(255,215,0,0.1)', borderBottom: '1px solid rgba(255,215,0,0.1)' }}>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}>
+            <section className="responsive-section" style={{ marginTop: '6rem', padding: '4rem', background: 'rgba(255,215,0,0.02)', borderTop: '1px solid rgba(255,215,0,0.1)', borderBottom: '1px solid rgba(255,215,0,0.1)' }}>
+                <div className="responsive-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}>
                     <div>
                         <h2 className="font-display text-accent" style={{ fontSize: '1rem', letterSpacing: '0.2em', marginBottom: '1rem' }}>SYNDICATE LIQUIDATION //</h2>
-                        <h3 className="font-display" style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '2rem' }}>INSTANT EQUITY TRANSFER.</h3>
+                        <h3 className="font-display responsive-title-h2" style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '2rem' }}>INSTANT EQUITY TRANSFER.</h3>
                         <p style={{ color: 'var(--color-text-dim)', fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1.5rem' }}>
                             Our proprietary algorithm connects directly to 400+ ultra-high-net-worth dealer networks globally. When you propose a trade-in, the system runs a real-time auction in the background, securing the absolute maximum wholesale value for your asset within 14 seconds.
                         </p>
@@ -141,7 +141,7 @@ export const FinancePage = () => {
                             No negotiations. No delays. The exact figure is immediately applied against the principal of your new Aura Shift acquisition.
                         </p>
                     </div>
-                    <div style={{ padding: '3rem', background: 'rgba(5,5,5,0.8)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                    <div className="responsive-section" style={{ padding: '3rem', background: 'rgba(5,5,5,0.8)', border: '1px solid rgba(255,255,255,0.1)' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '1rem' }}>
                             <span style={{ color: 'var(--color-text-dim)', fontFamily: 'var(--font-display)', letterSpacing: '0.1em' }}>ASSET</span>
                             <span className="font-display">2023 FERRARI SF90 STRADALE</span>
@@ -159,9 +159,9 @@ export const FinancePage = () => {
             </section>
 
             {/* Extended Detail Section 2: Wealth Management */}
-            <section style={{ padding: '6rem 4rem', textAlign: 'center' }}>
-                <h3 className="font-display" style={{ fontSize: '2.5rem', marginBottom: '2rem' }}>WEALTH OPTIMIZATION STRATEGIES</h3>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', maxWidth: '1200px', margin: '0 auto' }}>
+            <section className="responsive-section" style={{ padding: '6rem 4rem', textAlign: 'center' }}>
+                <h3 className="font-display responsive-title-h2" style={{ fontSize: '2.5rem', marginBottom: '2rem' }}>WEALTH OPTIMIZATION STRATEGIES</h3>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem', maxWidth: '1200px', margin: '0 auto' }}>
                     <div className="glass-panel" style={{ padding: '2.5rem', textAlign: 'left' }}>
                         <h4 className="font-display text-accent" style={{ fontSize: '1.2rem', marginBottom: '1rem' }}>CLOSED-END LEASING</h4>
                         <p style={{ color: 'var(--color-text-dim)', lineHeight: '1.6' }}>Predictable depreciation curves for assets held 24-36 months. Maximize your liquid capital by paying only for the exact utilization of the vehicle's lifespan.</p>

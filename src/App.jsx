@@ -70,6 +70,23 @@ const BrandingOverlay = ({ interactive = true }) => {
 };
 
 const InitScreen = ({ onInitialize }) => {
+  const [loadingProgress, setLoadingProgress] = useState(0);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    let current = 0;
+    const interval = setInterval(() => {
+      current += Math.floor(Math.random() * 15) + 5;
+      if (current >= 100) {
+        current = 100;
+        clearInterval(interval);
+        setTimeout(() => setIsLoaded(true), 300);
+      }
+      setLoadingProgress(current);
+    }, 150);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <motion.div
       className="fullscreen-container"
@@ -92,10 +109,14 @@ const InitScreen = ({ onInitialize }) => {
             letterSpacing: '0.2em',
             fontSize: '0.9rem'
           }}>
-            SYSTEM STANDBY
+            {isLoaded ? "SYSTEM STANDBY" : `LOADING... ${loadingProgress}%`}
           </p>
-          <button className="btn-futuristic" onClick={onInitialize}>
-            INITIALIZE PROTOCOL
+          <button
+            className="btn-futuristic"
+            onClick={onInitialize}
+            style={{ opacity: isLoaded ? 1 : 0.5, pointerEvents: isLoaded ? 'auto' : 'none' }}
+          >
+            {isLoaded ? "INITIALIZE PROTOCOL" : "INITIALIZING..."}
           </button>
         </motion.div>
       </div>
@@ -146,13 +167,7 @@ const IntroSequence = ({ onComplete }) => {
         Wrap the button in a fixed container so the whileHover scale doesn't 
         affect positioning / cause layout thrashing that results in a glitch 
       */}
-      <div style={{
-        position: 'absolute',
-        bottom: '2rem',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        zIndex: 60,
-      }}>
+      <div className="skip-intro-wrapper">
         <motion.button
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.5 }}
@@ -199,7 +214,7 @@ const PageLayout = ({ children }) => {
       <BrandingOverlay />
 
       {/* Page Content */}
-      <div style={{ flex: 1, zIndex: 10, position: 'relative' }}>
+      <div style={{ flex: 1, position: 'relative' }}>
         {children}
       </div>
     </motion.div>

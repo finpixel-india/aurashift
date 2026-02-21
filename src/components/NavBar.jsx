@@ -93,7 +93,7 @@ export const NavBar = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 style={{
-                    position: 'absolute',
+                    position: 'fixed',
                     top: '2rem',
                     right: '2rem',
                     zIndex: 60,

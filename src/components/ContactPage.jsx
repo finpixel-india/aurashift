@@ -58,7 +58,7 @@ const CustomSelect = ({ options }) => {
 
 export const ContactPage = () => {
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', padding: '6rem 4rem 0 4rem', position: 'relative' }}>
+        <div className="responsive-hero-padding" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', padding: '6rem 4rem 0 4rem', position: 'relative' }}>
             <NavBar />
 
             <div style={{ marginBottom: '4rem' }}>
@@ -68,7 +68,7 @@ export const ContactPage = () => {
                 </p>
             </div>
 
-            <div style={{
+            <div className="responsive-grid-2" style={{
                 display: 'grid',
                 gridTemplateColumns: '1fr 1fr',
                 gap: '4rem',
@@ -96,7 +96,7 @@ export const ContactPage = () => {
                                 "NEURAL NET IT SUPPORT"
                             ]} />
                         </div>
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                        <div className="responsive-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                             <div>
                                 <label style={{ display: 'block', color: 'var(--color-text-dim)', fontSize: '0.9rem', marginBottom: '0.5rem', fontFamily: 'var(--font-display)', letterSpacing: '0.1em' }}>IDENTIFIER</label>
                                 <input type="text" placeholder="Full Name" style={{ width: '100%', padding: '1rem', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.2)', color: 'white', fontFamily: 'var(--font-main)', outline: 'none' }} />
@@ -137,7 +137,7 @@ export const ContactPage = () => {
                         initial={{ opacity: 0, x: 30 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: 0.4 }}
-                        className="glass-panel"
+                        className="glass-panel responsive-flex-row"
                         style={{ padding: '2.5rem', display: 'flex', alignItems: 'flex-start', gap: '2rem', flex: 1, borderTop: '2px solid rgba(255,255,255,0.1)' }}
                     >
                         <MapPin size={32} className="text-accent" style={{ flexShrink: 0 }} />

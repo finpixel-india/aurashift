@@ -24,7 +24,7 @@ export const VehicleDetailPage = () => {
         <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', padding: '6rem 4rem 0 4rem', position: 'relative' }}>
             <NavBar />
 
-            <div style={{
+            <div className="responsive-grid-2" style={{
                 display: 'grid',
                 gridTemplateColumns: 'minmax(600px, 1fr) 450px',
                 gap: '4rem',
@@ -50,7 +50,7 @@ export const VehicleDetailPage = () => {
                     </motion.div>
 
                     {/* Feature Highlights Grid */}
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1rem' }}>
+                    <div className="responsive-grid-3" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1rem' }}>
                         <div className="glass-panel" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'center', textAlign: 'center' }}>
                             <Infinity className="text-accent" size={32} />
                             <div>
@@ -132,7 +132,7 @@ export const VehicleDetailPage = () => {
                     <h3 className="font-display" style={{ fontSize: '3.5rem', fontWeight: 'bold' }}>FORM FOLLOWS 273 MPH.</h3>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                <div className="responsive-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                     <div style={{
                         height: '400px',
                         background: `url('https://images.unsplash.com/photo-1542362567-b07e54358753?q=80&w=1200') center/cover`,
@@ -162,7 +162,7 @@ export const VehicleDetailPage = () => {
 
                 <div className="glass-panel" style={{ padding: '3rem' }}>
                     <h4 className="font-display text-accent" style={{ fontSize: '1.2rem', borderBottom: '1px solid rgba(255,215,0,0.2)', paddingBottom: '0.5rem', marginBottom: '1.5rem' }}>POWERTRAIN</h4>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '3rem', color: 'var(--color-text-dim)' }}>
+                    <div className="responsive-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '3rem', color: 'var(--color-text-dim)' }}>
                         <div>Displacement: <span style={{ color: 'white', float: 'right' }}>7,993 cc</span></div>
                         <div>Turbochargers: <span style={{ color: 'white', float: 'right' }}>4x Two-Stage</span></div>
                         <div>Transmission: <span style={{ color: 'white', float: 'right' }}>7-Speed Dual-Clutch</span></div>
@@ -170,7 +170,7 @@ export const VehicleDetailPage = () => {
                     </div>
 
                     <h4 className="font-display text-accent" style={{ fontSize: '1.2rem', borderBottom: '1px solid rgba(255,215,0,0.2)', paddingBottom: '0.5rem', marginBottom: '1.5rem' }}>DIMENSIONS & CAPACITY</h4>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '3rem', color: 'var(--color-text-dim)' }}>
+                    <div className="responsive-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '3rem', color: 'var(--color-text-dim)' }}>
                         <div>Length: <span style={{ color: 'white', float: 'right' }}>4794 mm</span></div>
                         <div>Width: <span style={{ color: 'white', float: 'right' }}>2038 mm</span></div>
                         <div>Height: <span style={{ color: 'white', float: 'right' }}>1212 mm</span></div>

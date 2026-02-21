@@ -21,7 +21,7 @@ export const HeritagePage = () => {
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 50%, rgba(5,5,5,1) 100%)' }} />
 
                 <div style={{ zIndex: 10 }}>
-                    <h2 className="font-display" style={{ fontSize: '4.5rem', fontWeight: '700', marginBottom: '0.5rem', textShadow: '0 0 40px rgba(0,0,0,0.8)' }}>OUR HERITAGE</h2>
+                    <h2 className="font-display responsive-title-h1" style={{ fontSize: '4.5rem', fontWeight: '700', marginBottom: '0.5rem', textShadow: '0 0 40px rgba(0,0,0,0.8)' }}>OUR HERITAGE</h2>
                     <p style={{ color: 'var(--color-text-dim)', fontSize: '1.2rem', maxWidth: '800px', lineHeight: '1.6', textShadow: '0 2px 4px rgba(0,0,0,0.8)' }}>
                         Forged in the fires of 2010. Aura Shift stands at the absolute apex of hyper-automotive retail and kinetic architecture, dealing strictly in vehicles pushing past 1,000 BHP.
                     </p>
@@ -100,12 +100,12 @@ export const HeritagePage = () => {
             </div>
 
             {/* Extended Detail Section 1: The Glass Vault */}
-            <section style={{ padding: '6rem 4rem', background: 'radial-gradient(circle at center, rgba(255,215,0,0.03) 0%, transparent 70%)' }}>
+            <section className="responsive-section" style={{ padding: '6rem 4rem', background: 'radial-gradient(circle at center, rgba(255,215,0,0.03) 0%, transparent 70%)' }}>
                 <div style={{ maxWidth: '1000px', margin: '0 auto', textAlign: 'center' }}>
                     <h2 className="font-display text-accent" style={{ fontSize: '1rem', letterSpacing: '0.2em', marginBottom: '1rem' }}>THE GLASS VAULT ARCHIVES //</h2>
-                    <h3 className="font-display" style={{ fontSize: '3rem', fontWeight: 'bold', marginBottom: '3rem' }}>PRESERVING THE ANALOG ERA.</h3>
+                    <h3 className="font-display responsive-title-h2" style={{ fontSize: '3rem', fontWeight: 'bold', marginBottom: '3rem' }}>PRESERVING THE ANALOG ERA.</h3>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', textAlign: 'left' }}>
+                    <div className="responsive-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', textAlign: 'left' }}>
                         <div>
                             <p style={{ color: 'var(--color-text-dim)', fontSize: '1.2rem', lineHeight: '1.6', marginBottom: '1.5rem' }}>
                                 Below Sector 7G lies a climate-controlled, subterranean gallery where the internal combustion engine is treated as a historic artifact. The Glass Vault contains over 40 zero-mile supercars from the 1990s and 2000s.
@@ -128,13 +128,13 @@ export const HeritagePage = () => {
             </section>
 
             {/* Extended Detail Section 2: Vision 2030 */}
-            <section style={{ padding: '6rem 4rem', textAlign: 'center', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-                <h3 className="font-display" style={{ fontSize: '2.5rem', marginBottom: '2rem' }}>PROJECT NEO-HORIZON 2030</h3>
+            <section className="responsive-section" style={{ padding: '6rem 4rem', textAlign: 'center', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+                <h3 className="font-display responsive-title-h2" style={{ fontSize: '2.5rem', marginBottom: '2rem' }}>PROJECT NEO-HORIZON 2030</h3>
                 <p style={{ color: 'var(--color-text-dim)', fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto', lineHeight: '1.6', marginBottom: '3rem' }}>
                     Aura Shift is currently constructing the world's first orbital vehicle proving ground. In partnership with private aerospace entities, Neo-Horizon will allow our clients to experience true 0-G aerodynamics testing by 2030.
                 </p>
 
-                <div style={{ display: 'flex', justifyContent: 'center', gap: '4rem' }}>
+                <div className="responsive-flex-stack" style={{ display: 'flex', justifyContent: 'center', gap: '4rem' }}>
                     <div>
                         <div className="font-display text-accent" style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>$4.2B</div>
                         <div style={{ color: 'var(--color-text-dim)', letterSpacing: '0.1em' }}>CAPITAL RAISED</div>

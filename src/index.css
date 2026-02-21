@@ -167,4 +167,17 @@ body {
     flex-wrap: wrap !important;
     width: 100% !important;
   }
+
+  /* Safe Area Inset to avoid being hidden behind mobile bottom nav */
+  .skip-intro-wrapper {
+    bottom: calc(env(safe-area-inset-bottom, 2rem) + 4rem) !important;
+  }
+}
+
+.skip-intro-wrapper {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 60;
 }
