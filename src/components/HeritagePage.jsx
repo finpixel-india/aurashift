@@ -9,8 +9,8 @@ export const HeritagePage = () => {
             <NavBar />
 
             {/* Massive Hero Image */}
-            <div style={{
-                height: '60vh',
+            <div className="responsive-hero-padding" style={{
+                minHeight: '60vh',
                 width: '100%',
                 background: `url('https://images.unsplash.com/photo-1503376710349-8c7cd9e6d03a?w=1600&q=80') center/cover no-repeat`,
                 position: 'relative',
@@ -22,13 +22,13 @@ export const HeritagePage = () => {
 
                 <div style={{ zIndex: 10 }}>
                     <h2 className="font-display responsive-title-h1" style={{ fontSize: '4.5rem', fontWeight: '700', marginBottom: '0.5rem', textShadow: '0 0 40px rgba(0,0,0,0.8)' }}>OUR HERITAGE</h2>
-                    <p style={{ color: 'var(--color-text-dim)', fontSize: '1.2rem', maxWidth: '800px', lineHeight: '1.6', textShadow: '0 2px 4px rgba(0,0,0,0.8)' }}>
+                    <p className="responsive-title-h3" style={{ color: 'var(--color-text-dim)', fontSize: '1.2rem', maxWidth: '800px', lineHeight: '1.6', textShadow: '0 2px 4px rgba(0,0,0,0.8)' }}>
                         Forged in the fires of 2010. Aura Shift stands at the absolute apex of hyper-automotive retail and kinetic architecture, dealing strictly in vehicles pushing past 1,000 BHP.
                     </p>
                 </div>
             </div>
 
-            <div style={{
+            <div className="responsive-grid-2" style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
                 gap: '3rem',

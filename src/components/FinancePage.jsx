@@ -9,8 +9,8 @@ export const FinancePage = () => {
             <NavBar />
 
             <div style={{ marginBottom: '4rem' }}>
-                <h2 className="font-display responsive-title-h1" style={{ fontSize: '3.5rem', fontWeight: '700', marginBottom: '0.5rem', textShadow: '0 0 30px rgba(255,215,0,0.1)' }}>FINANCIAL ARCHITECTURE</h2>
-                <p style={{ color: 'var(--color-text-dim)', fontSize: '1.2rem', maxWidth: '800px', lineHeight: '1.6' }}>
+                <h2 className="font-display responsive-title-h2" style={{ fontSize: '3.5rem', fontWeight: '700', marginBottom: '0.5rem', textShadow: '0 0 30px rgba(255,215,0,0.1)' }}>FINANCIAL ARCHITECTURE</h2>
+                <p className="responsive-title-h3" style={{ color: 'var(--color-text-dim)', fontSize: '1.2rem', maxWidth: '800px', lineHeight: '1.6' }}>
                     Acquiring an apex-tier vehicle requires apex-tier financial structuring. Our dedicated team of wealth managers and automotive financiers craft bespoke acquisition strategies tailored to your global asset portfolio.
                 </p>
             </div>
@@ -141,8 +141,8 @@ export const FinancePage = () => {
                             No negotiations. No delays. The exact figure is immediately applied against the principal of your new Aura Shift acquisition.
                         </p>
                     </div>
-                    <div className="responsive-section" style={{ padding: '3rem', background: 'rgba(5,5,5,0.8)', border: '1px solid rgba(255,255,255,0.1)' }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '1rem' }}>
+                    <div className="responsive-section" style={{ padding: '3rem', background: 'rgba(5,5,5,0.8)', border: '1px solid rgba(255,255,255,0.1)', overflowX: 'auto' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '1rem', gap: '1rem' }}>
                             <span style={{ color: 'var(--color-text-dim)', fontFamily: 'var(--font-display)', letterSpacing: '0.1em' }}>ASSET</span>
                             <span className="font-display">2023 FERRARI SF90 STRADALE</span>
                         </div>
