@@ -70,23 +70,6 @@ const BrandingOverlay = ({ interactive = true }) => {
 };
 
 const InitScreen = ({ onInitialize }) => {
-  const [loadingProgress, setLoadingProgress] = useState(0);
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    let current = 0;
-    const interval = setInterval(() => {
-      current += Math.floor(Math.random() * 15) + 5;
-      if (current >= 100) {
-        current = 100;
-        clearInterval(interval);
-        setTimeout(() => setIsLoaded(true), 300);
-      }
-      setLoadingProgress(current);
-    }, 150);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <motion.div
       className="fullscreen-container"
@@ -103,20 +86,11 @@ const InitScreen = ({ onInitialize }) => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
         >
-          <p className="font-display" style={{
-            color: 'var(--color-text-dim)',
-            marginBottom: '2rem',
-            letterSpacing: '0.2em',
-            fontSize: '0.9rem'
-          }}>
-            {isLoaded ? "SYSTEM STANDBY" : `LOADING... ${loadingProgress}%`}
-          </p>
           <button
             className="btn-futuristic"
             onClick={onInitialize}
-            style={{ opacity: isLoaded ? 1 : 0.5, pointerEvents: isLoaded ? 'auto' : 'none' }}
           >
-            {isLoaded ? "INITIALIZE PROTOCOL" : "INITIALIZING..."}
+            INITIALIZE PROTOCOL
           </button>
         </motion.div>
       </div>
@@ -136,6 +110,52 @@ const InitScreen = ({ onInitialize }) => {
 
 const IntroSequence = ({ onComplete }) => {
   const videoRef = useRef(null);
+  const [loadingProgress, setLoadingProgress] = useState(0);
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    (async () => {
+      try {
+        const response = await fetch('/video.mp4');
+        const contentLength = +(response.headers.get('Content-Length') || 0);
+        const reader = response.body.getReader();
+        const chunks = [];
+        let received = 0;
+
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done || cancelled) break;
+          chunks.push(value);
+          received += value.length;
+          if (contentLength) {
+            setLoadingProgress(Math.min(Math.round((received / contentLength) * 100), 100));
+          }
+        }
+
+        if (cancelled) return;
+
+        const blob = new Blob(chunks, { type: 'video/mp4' });
+        const url = URL.createObjectURL(blob);
+
+        if (videoRef.current) {
+          videoRef.current.src = url;
+          videoRef.current.load();
+          videoRef.current.play().catch(() => { });
+        }
+
+        setLoadingProgress(100);
+        setIsReady(true);
+      } catch (err) {
+        console.error('Failed to load intro video:', err);
+        // If fetch fails (e.g. no video file), skip directly to main
+        if (!cancelled) onComplete();
+      }
+    })();
+
+    return () => { cancelled = true; };
+  }, [onComplete]);
 
   return (
     <motion.div
@@ -150,23 +170,64 @@ const IntroSequence = ({ onComplete }) => {
 
       <video
         ref={videoRef}
-        autoPlay
         playsInline
-        preload="auto"
         onEnded={onComplete}
         style={{
           width: '100%',
           height: '100%',
-          objectFit: 'cover'
+          objectFit: 'cover',
+          opacity: isReady ? 1 : 0,
+          transition: 'opacity 0.5s ease'
         }}
-      >
-        <source src="/video.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      {/* 
-        Wrap the button in a fixed container so the whileHover scale doesn't 
-        affect positioning / cause layout thrashing that results in a glitch 
-      */}
+      />
+
+      {/* Loading progress overlay */}
+      {!isReady && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          style={{
+            position: 'absolute',
+            top: 0, left: 0, right: 0, bottom: 0,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '1.5rem',
+            zIndex: 5
+          }}
+        >
+          <p className="font-display" style={{
+            color: 'var(--color-text-dim)',
+            letterSpacing: '0.2em',
+            fontSize: '0.9rem',
+            margin: 0
+          }}>
+            LOADING INTRO... {loadingProgress}%
+          </p>
+          <div style={{
+            width: '220px',
+            height: '3px',
+            background: 'rgba(255,255,255,0.1)',
+            borderRadius: '2px',
+            overflow: 'hidden'
+          }}>
+            <motion.div
+              style={{
+                height: '100%',
+                background: 'var(--color-accent)',
+                borderRadius: '2px'
+              }}
+              initial={{ width: '0%' }}
+              animate={{ width: `${loadingProgress}%` }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
+            />
+          </div>
+        </motion.div>
+      )}
+
+      {/* Skip Intro Button — always visible */}
       <div className="skip-intro-wrapper">
         <motion.button
           initial={{ opacity: 0 }}
@@ -184,7 +245,7 @@ const IntroSequence = ({ onComplete }) => {
             cursor: 'pointer',
             borderRadius: '4px',
             backdropFilter: 'blur(4px)',
-            display: 'block' // Prevent inline-block jitter
+            display: 'block'
           }}
         >
           SKIP INTRO
